@@ -1,15 +1,17 @@
 before_install:
   - git clone https://github.com/jbussdieker/libsass.git
   - git clone https://github.com/hcatlin/sass-spec.git
+
 install:
   - cd libsass
   - autoreconf -i
-  - ./configure
+  - ./configure --prefix=/usr
   - sudo make install
   - cd ..
   - autoreconf -i
-  - ./configure
+  - ./configure --prefix=/usr
   - sudo make install
+
 script:
   - cd sass-spec
   - ./sass-spec.rb -c sassc -s --ignore-todo
