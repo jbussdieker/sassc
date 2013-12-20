@@ -1,11 +1,13 @@
-
 before_install:
-  - gem install sass
   - git clone https://github.com/jbussdieker/libsass.git
-  - export SASS_LIBSASS_PATH=libsass
 install:
   - cd libsass
   - autoreconf -i
   - ./configure
-  - make install
-script: "make test"
+  - make
+  - sudo make install
+script:
+  - autoreconf -i
+  - ./configure
+  - make
+  - sudo make install
