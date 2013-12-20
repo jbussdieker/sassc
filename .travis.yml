@@ -7,10 +7,9 @@ install:
   - ./configure
   - sudo make install
   - cd ..
-script:
   - autoreconf -i
   - ./configure
   - sudo make install
-after_script:
+script:
   - cd sass-spec
   - ./sass-spec.rb -c sassc -s --ignore-todo
